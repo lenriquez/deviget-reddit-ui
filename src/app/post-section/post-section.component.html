@@ -1,5 +1,5 @@
 <section class="d-flex p-2">
-  <drdt-left-panel *ngIf="posts" [posts]="posts"></drdt-left-panel>
+  <drdt-left-panel *ngIf="posts" [posts]="posts" (event)="onEvent($event)"></drdt-left-panel>
   <div class="divider"></div>
-  <drdt-details-cards></drdt-details-cards>
+  <drdt-details-cards  *ngIf="currentPost" [post]="currentPost"></drdt-details-cards>
 </section>

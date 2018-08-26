@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from '../../shared/models/post';
-
+import { Message } from '../../shared/models/message';
 @Component({
   selector: 'drdt-post-cards',
   templateUrl: './post-cards.component.html',
@@ -15,8 +15,12 @@ export class PostCardsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelected(id: number) {
+  onSelected(id) {
+    const message = new Message();
+    message.type = 'selected';
+    message.details = { id };
 
+    this.event.emit(message);
   }
 
 }

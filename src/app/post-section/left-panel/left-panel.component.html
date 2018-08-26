@@ -1,5 +1,6 @@
 
 <div class="container">
+  <drdt-pagination (event)="paginationEvent($event)"></drdt-pagination>
   <div *ngFor="let post of page">
     <drdt-post-cards
       [post]="post"

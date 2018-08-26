@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Input } from '@angular/core';
 import { Post } from '../../shared/models/post';
 
@@ -9,6 +9,7 @@ import { Post } from '../../shared/models/post';
 })
 export class LeftPanelComponent implements OnInit {
   @Input() posts: Post[];
+  @Output() event = new EventEmitter();
   page: Post[];
 
   constructor() { }
@@ -18,7 +19,7 @@ export class LeftPanelComponent implements OnInit {
   }
 
   onEvent(event) {
-    console.log(event);
+    this.event.emit(event);
   }
 
   paginationEvent(page) {

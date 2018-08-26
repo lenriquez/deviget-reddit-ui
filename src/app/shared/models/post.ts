@@ -7,6 +7,7 @@ export class Post {
   read: boolean;
   numComments: number;
   created: string;
+  picture: string;
 
   constructor(data) {
     this.thumbnail = data.thumbnail;
@@ -16,5 +17,6 @@ export class Post {
     this.read = false;
     this.numComments = data.num_comments;
     this.created = data.created;
+    this.picture = data.url;
   }
 }

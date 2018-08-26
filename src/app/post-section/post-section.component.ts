@@ -9,6 +9,7 @@ import { Post } from '../shared/models/post';
 })
 export class PostSectionComponent implements OnInit {
   posts: Post[];
+  currentPost: Post;
 
   constructor(public redditApiServiceService: RedditApiServiceService) { }
 
@@ -18,5 +19,20 @@ export class PostSectionComponent implements OnInit {
 
   setPost(posts: Post[]) {
     this.posts = posts;
+    this.currentPost = posts[0];
+    this.currentPost.read = true;
+  }
+
+  onEvent(event) {
+    switch (event.type) {
+      case 'selected':
+        this.setCurrentPost(event.details.id);
+        break;
+    }
+  }
+
+  setCurrentPost(id: string): void {
+    this.currentPost = this.posts.filter(e =>  e.id === id )[0];
+    this.currentPost.read = true;
   }
 }
