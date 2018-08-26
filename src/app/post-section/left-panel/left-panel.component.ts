@@ -15,4 +15,8 @@ export class LeftPanelComponent implements OnInit {
   ngOnInit() {
   }
 
+  onEvent(event) {
+    console.log(event);
+  }
+
 }

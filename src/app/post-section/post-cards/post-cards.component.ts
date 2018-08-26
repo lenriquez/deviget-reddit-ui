@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'drdt-post-cards',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-cards.component.scss']
 })
 export class PostCardsComponent implements OnInit {
+  @Input() post: Post;
+  @Output() event = new EventEmitter();
 
   constructor() { }
 
