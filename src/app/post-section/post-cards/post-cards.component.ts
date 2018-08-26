@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Post } from '../../shared/models/post';
 
 @Component({
   selector: 'drdt-post-cards',
@@ -12,6 +13,10 @@ export class PostCardsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelected(id: number) {
+
   }
 
 }

@@ -1,0 +1,34 @@
+
+.actions {
+  padding: 1px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  padding-left: 10px;
+  width: 100px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  fa {
+    padding: 6px;
+    &:hover  {
+      color:rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .active {
+    color: green;
+  }
+}
+
+.hover {
+  &:hover {
+    color: green;
+    cursor: pointer;
+  }
+}
+
+.card {
+  max-width: 27rem;
+}
