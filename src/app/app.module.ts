@@ -6,17 +6,28 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PostSectionComponent } from './post-section/post-section.component';
 import { HeaderComponent } from './shared/components/header/header.component';
+import { DetailsCardsComponent } from './post-section/details-cards/details-cards.component';
+import { LeftPanelComponent } from './post-section/left-panel/left-panel.component';
+import { PostCardsComponent } from './post-section/post-cards/post-cards.component';
+
+import { RedditApiServiceService } from './shared/services/reddit-api-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostSectionComponent,
-    HeaderComponent
+    HeaderComponent,
+    DetailsCardsComponent,
+    LeftPanelComponent,
+    PostCardsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    Angular2FontawesomeModule
   ],
-  providers: [],
+  providers: [RedditApiServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
