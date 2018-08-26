@@ -1,0 +1,5 @@
+<ul class="pagination justify-content-center">
+  <li class="page-item" *ngFor="let page of [1,2,3,4,5]">
+    <a class="page-link" [ngClass]="{'active': page === currentPage }" (click)="onPageChange(page)" href="#">{{page}}</a>
+  </li>
+</ul>

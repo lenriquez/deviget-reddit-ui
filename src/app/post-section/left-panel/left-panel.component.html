@@ -1,9 +1,10 @@
 
 <div class="container">
-  <div *ngFor="let post of posts">
+  <div *ngFor="let post of page">
     <drdt-post-cards
       [post]="post"
       (event)="onEvent($event)"
     ></drdt-post-cards>
   </div>
+  <drdt-pagination (event)="paginationEvent($event)"></drdt-pagination>
 </div>

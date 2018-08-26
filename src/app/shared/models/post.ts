@@ -13,7 +13,7 @@ export class Post {
     this.title = data.title;
     this.id = data.id;
     this.author = data.author;
-    this.read = true;
+    this.read = false;
     this.numComments = data.num_comments;
     this.created = data.created;
   }

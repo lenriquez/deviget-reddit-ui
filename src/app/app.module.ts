@@ -12,6 +12,7 @@ import { PostCardsComponent } from './post-section/post-cards/post-cards.compone
 
 import { RedditApiServiceService } from './shared/services/reddit-api-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginationComponent } from './shared/components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     DetailsCardsComponent,
     LeftPanelComponent,
-    PostCardsComponent
+    PostCardsComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

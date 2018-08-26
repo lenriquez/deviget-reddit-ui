@@ -9,14 +9,20 @@ import { Post } from '../../shared/models/post';
 })
 export class LeftPanelComponent implements OnInit {
   @Input() posts: Post[];
+  page: Post[];
 
   constructor() { }
 
   ngOnInit() {
+    this.page = this.posts.slice(0, 9);
   }
 
   onEvent(event) {
     console.log(event);
+  }
+
+  paginationEvent(page) {
+    this.page = this.posts.slice(page, page + 9);
   }
 
 }
