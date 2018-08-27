@@ -1,5 +1,6 @@
 
 <div class="container">
+  <div class="clear" (click)="onEvent('clear')"> Clear <fa [name]="'retweet'"> </fa> </div>
   <drdt-pagination (event)="paginationEvent($event)"></drdt-pagination>
   <div *ngFor="let post of page">
     <drdt-post-cards *ngIf="!post.deleted"

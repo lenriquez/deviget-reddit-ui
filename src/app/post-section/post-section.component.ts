@@ -18,12 +18,14 @@ export class PostSectionComponent implements OnInit {
   }
 
   setPost(posts: Post[]) {
+    posts = this.filterDeletedPost(posts);
     this.posts = posts;
     this.currentPost = posts[0];
     this.currentPost.read = true;
   }
 
   onEvent(event) {
+    if (event === 'clear') {this.clean(); }
     switch (event.type) {
       case 'selected':
         this.setCurrentPost(event.details.id);
@@ -40,6 +42,19 @@ export class PostSectionComponent implements OnInit {
   }
 
   removePost(id) {
+    const deletePost = JSON.parse(localStorage.getItem('deleted')) || [] ;
     this.posts = this.posts.filter(e =>  e.id !== id );
+    deletePost.push(id);
+    localStorage.setItem('deleted', JSON.stringify(deletePost));
+  }
+
+  filterDeletedPost(posts: Post[]): Post[] {
+    const deletePost = JSON.parse(localStorage.getItem('deleted')) || [] ;
+    return posts.filter(e => deletePost.indexOf(e.id) === -1 );
+  }
+
+  clean() {
+    localStorage.setItem('deleted', '[]');
+    this.redditApiServiceService.getPosts().subscribe(e => this.setPost(e));
   }
 }

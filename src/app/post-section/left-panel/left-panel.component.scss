@@ -1,3 +1,9 @@
 .warning-size {
   width: 430px;
 }
+
+.clear {
+  &:hover {
+    cursor: pointer;
+  }
+}
