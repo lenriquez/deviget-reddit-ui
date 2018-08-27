@@ -2,10 +2,15 @@
 <div class="container">
   <drdt-pagination (event)="paginationEvent($event)"></drdt-pagination>
   <div *ngFor="let post of page">
-    <drdt-post-cards
+    <drdt-post-cards *ngIf="!post.deleted"
       [post]="post"
       (event)="onEvent($event)"
     ></drdt-post-cards>
+  </div>
+  <div *ngIf="page.length === 0">
+    <div class="alert alert-warning warning-size">
+      <strong>Warning!</strong> Empty Page
+    </div>
   </div>
   <drdt-pagination (event)="paginationEvent($event)"></drdt-pagination>
 </div>

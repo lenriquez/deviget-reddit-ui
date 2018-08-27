@@ -23,4 +23,13 @@ export class PostCardsComponent implements OnInit {
     this.event.emit(message);
   }
 
+  onEvent(eventName, id, event) {
+    const message = new Message();
+    message.type = eventName;
+    message.details = { id };
+    event.stopPropagation();
+
+    this.event.emit(message);
+  }
+
 }

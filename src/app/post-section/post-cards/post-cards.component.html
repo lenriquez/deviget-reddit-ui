@@ -6,8 +6,8 @@
     <p class="card-text p-2">{{post.title}}</p>
     <div class="actions">
       <fa [name]="'check'" [ngClass]="{'active': post.read}"></fa>
-      <fa [name]="'save'"></fa>
-      <fa [name]="'trash'"></fa>
+      <fa [name]="'save'" (click)="onEvent('save', post.id, $event)"></fa>
+      <fa [name]="'trash'" (click)="onEvent('trash', post.id, $event)"></fa>
     </div>
   </div>
 </div>

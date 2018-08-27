@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnChanges} from '@angular/core';
+import { Input, SimpleChanges} from '@angular/core';
 import { Post } from '../../shared/models/post';
 
 @Component({
@@ -7,15 +7,18 @@ import { Post } from '../../shared/models/post';
   templateUrl: './left-panel.component.html',
   styleUrls: ['./left-panel.component.scss']
 })
-export class LeftPanelComponent implements OnInit {
+export class LeftPanelComponent implements OnInit, OnChanges  {
   @Input() posts: Post[];
   @Output() event = new EventEmitter();
   page: Post[];
+  currentPage = 0;
 
   constructor() { }
 
-  ngOnInit() {
-    this.page = this.posts.slice(0, 9);
+  ngOnInit() { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.paginationEvent(this.currentPage);
   }
 
   onEvent(event) {
@@ -23,6 +26,7 @@ export class LeftPanelComponent implements OnInit {
   }
 
   paginationEvent(page) {
+    this.currentPage = page;
     this.page = this.posts.slice(page, page + 9);
   }
 

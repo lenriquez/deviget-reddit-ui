@@ -8,6 +8,8 @@ export class Post {
   numComments: number;
   created: string;
   picture: string;
+  deleted = false;
+  saved = false;
 
   constructor(data) {
     this.thumbnail = data.thumbnail;

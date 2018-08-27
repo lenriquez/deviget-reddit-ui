@@ -28,11 +28,18 @@ export class PostSectionComponent implements OnInit {
       case 'selected':
         this.setCurrentPost(event.details.id);
         break;
+      case 'trash':
+        this.removePost(event.details.id);
+        break;
     }
   }
 
   setCurrentPost(id: string): void {
     this.currentPost = this.posts.filter(e =>  e.id === id )[0];
     this.currentPost.read = true;
+  }
+
+  removePost(id) {
+    this.posts = this.posts.filter(e =>  e.id !== id );
   }
 }
